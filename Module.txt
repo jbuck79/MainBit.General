@@ -1,0 +1,32 @@
+﻿Name: MainBit.General
+AntiForgery: enabled
+Author: The MainBit Team
+Website: http://mainbit.com
+Version: 1.9
+OrchardVersion: 1.9.1
+Description: Description for the module
+Features:
+    MainBit.General:
+		Name: MainBit.General
+        Description: Description for feature MainBit.General.
+		Category: Content
+	MainBit.General.Rules
+		Name: MainBit.General.Rules
+        Description: Description for feature MainBit.General.Rules.
+		Category: Widget
+		Dependencies: Orchard.Widgets, MainBit.Utility
+	MainBit.General.Projections
+		Name: MainBit.General.Projections
+        Description: Provides projection filter by container Id.
+		Category: Content
+		Dependencies: Orchard.Projections, Orchard.Forms
+	MainBit.General.Taxonomies
+		Name: MainBit.General.Taxonomies
+        Description: Provides projection filter by container Id.
+		Category: Content
+		Dependencies: Orchard.Taxonomies, Orchard.Projections, Orchard.Tokens
+	MainBit.General.Tokens
+		Name: MainBit.General.Tokens
+        Description: Provides UrlReferrer token.
+		Category: Content
+		Dependencies: Orchard.Tokens
