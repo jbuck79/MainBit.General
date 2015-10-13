@@ -30,3 +30,8 @@ Features:
         Description: Provides UrlReferrer token.
 		Category: Content
 		Dependencies: Orchard.Tokens
+	MainBit.General.DynamicForms
+		Name: MainBit.General.DynamicForms
+        Description: Provides ajax submitting.
+		Category: Content
+		Dependencies: Orchard.DynamicForms

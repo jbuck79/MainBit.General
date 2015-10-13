@@ -68,6 +68,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DynamicForms\Scripts\mainbit-dynamic-form.js" />
     <Content Include="Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
     <Content Include="Module.txt" />
@@ -88,9 +89,19 @@
       <Name>MainBit.Utility</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.DynamicForms\Orchard.DynamicForms.csproj">
+      <Project>{82190f52-2901-46d6-8a4c-34649959483f}</Project>
+      <Name>Orchard.DynamicForms</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\Orchard.Forms\Orchard.Forms.csproj">
       <Project>{642a49d7-8752-4177-80d6-bfbbcfad3de0}</Project>
       <Name>Orchard.Forms</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Layouts\Orchard.Layouts.csproj">
+      <Project>{6bd8b2fa-f2e3-4ac8-a4c3-2925a653889a}</Project>
+      <Name>Orchard.Layouts</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Orchard.Projections\Orchard.Projections.csproj">
@@ -115,6 +126,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicForms\Controllers\FormController.cs" />
+    <Compile Include="DynamicForms\Drivers\FormElementDriver.cs" />
+    <Compile Include="DynamicForms\Helpers\FormControllerExtensions.cs" />
+    <Compile Include="DynamicForms\ResourceManifest.cs" />
     <Compile Include="Projections\Providers\Filters\ContainerIdFilter.cs" />
     <Compile Include="Projections\Providers\Filters\ContentIdFilter.cs" />
     <Compile Include="Rules\PartRuleProvider.cs" />
@@ -124,6 +139,12 @@
     <Compile Include="Taxonomies\Projections\TermsFilterForms.cs" />
     <Compile Include="Taxonomies\Tokens\TaxonomyTokens.cs" />
     <Compile Include="Tokens\Providers\RequestTokens.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DynamicForms\Scripts\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Elements\Form.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -45,6 +45,13 @@ namespace MainBit.General.Shapes
                     pageClassBuilder.AddClassNames("not-found");
                 }
 
+                // add class name
+                if (!string.IsNullOrWhiteSpace(httpContext.Request["class-name"]))
+                {
+                    var pageClassBuilder = workContext.Resolve<IPageClassBuilder>();
+                    pageClassBuilder.AddClassNames(httpContext.Request["class-name"]);
+                }
+
                 // add home class
                 if (httpContext.Request.Url.AbsolutePath.TrimEnd('/').Equals(httpContext.Request.ApplicationPath.TrimEnd('/'), StringComparison.InvariantCultureIgnoreCase))
                 {
