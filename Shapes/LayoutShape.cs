@@ -61,10 +61,10 @@ namespace MainBit.General.Shapes
 
 
                 // add routing alternates
-                //var routeValues = httpContext.Request.RequestContext.RouteData.Values;
-                //displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area"));
-                //displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller"));
-                //displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller", "action"));
+                var routeValues = httpContext.Request.RequestContext.RouteData.Values;
+                displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area"));
+                displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller"));
+                displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller", "action"));
             });
         }
 
@@ -79,12 +79,12 @@ namespace MainBit.General.Shapes
         }
 
         // add routing alternates
-        //private static string BuildShapeName(System.Web.Routing.RouteValueDictionary values, params string[] names)
-        //{
-        //    return "Layout__" +
-        //        string.Join("__",
-        //            names.Select(s =>
-        //                ((string)values[s] ?? "").Replace(".", "_")));
-        //}
+        private static string BuildShapeName(System.Web.Routing.RouteValueDictionary values, params string[] names)
+        {
+            return "Layout__" +
+                string.Join("__",
+                    names.Select(s =>
+                        ((string)values[s] ?? "").Replace(".", "_")));
+        }
     }
 }
