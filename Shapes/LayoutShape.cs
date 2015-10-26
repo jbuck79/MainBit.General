@@ -30,32 +30,32 @@ namespace MainBit.General.Shapes
             {
                 var workContext = _wca.GetContext();
                 var httpContext = workContext.HttpContext;
+                var pageClassBuilder = workContext.Resolve<IPageClassBuilder>();
 
                 // add name alternate
                 if (!string.IsNullOrWhiteSpace(httpContext.Request["layout-name"]))
                 {
-                    displaying.ShapeMetadata.Alternates.Add("Layout__Name__" + EncodeAlternateElement(httpContext.Request["layout-name"]));
+                    var layoutName = EncodeAlternateElement(httpContext.Request["layout-name"]);
+                    displaying.ShapeMetadata.Alternates.Add(string.Format("Layout__Name__{0}", layoutName));
+                    pageClassBuilder.AddClassNames(string.Format("layout-name-{0}", layoutName));
                 }
 
                 // add not found alternate and class
                 if (httpContext.Response.StatusCode == 404)
                 {
                     displaying.ShapeMetadata.Alternates.Add("Layout__NotFound");
-                    var pageClassBuilder = workContext.Resolve<IPageClassBuilder>();
                     pageClassBuilder.AddClassNames("not-found");
                 }
 
                 // add class name
                 if (!string.IsNullOrWhiteSpace(httpContext.Request["class-name"]))
                 {
-                    var pageClassBuilder = workContext.Resolve<IPageClassBuilder>();
                     pageClassBuilder.AddClassNames(httpContext.Request["class-name"]);
                 }
 
                 // add home class
                 if (httpContext.Request.Url.AbsolutePath.TrimEnd('/').Equals(httpContext.Request.ApplicationPath.TrimEnd('/'), StringComparison.InvariantCultureIgnoreCase))
                 {
-                    var pageClassBuilder = workContext.Resolve<IPageClassBuilder>();
                     pageClassBuilder.AddClassNames("home");
                 }
 
