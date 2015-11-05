@@ -138,6 +138,7 @@
     <Compile Include="Taxonomies\Projections\TermsFilter.cs" />
     <Compile Include="Taxonomies\Projections\TermsFilterForms.cs" />
     <Compile Include="Taxonomies\Tokens\TaxonomyTokens.cs" />
+    <Compile Include="Tokens\Providers\OtherTokens.cs" />
     <Compile Include="Tokens\Providers\RequestTokens.cs" />
   </ItemGroup>
   <ItemGroup>
