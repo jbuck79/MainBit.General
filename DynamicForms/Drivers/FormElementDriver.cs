@@ -29,7 +29,7 @@ namespace MainBit.General.DynamicForms.Drivers
             _resourceManager = resourceManager;
         }
 
-        protected override void OnDisplaying(Form element, ElementDisplayContext context)
+        protected override void OnDisplaying(Form element, ElementDisplayingContext context)
         {
             if (context.DisplayType == "Design") {
                 return;
