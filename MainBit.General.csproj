@@ -24,6 +24,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -126,6 +127,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CultureCommands.cs" />
     <Compile Include="DynamicForms\Controllers\FormController.cs" />
     <Compile Include="DynamicForms\Drivers\FormElementDriver.cs" />
     <Compile Include="DynamicForms\Helpers\FormControllerExtensions.cs" />
