@@ -1,15 +1,8 @@
 ﻿using Orchard;
-using Orchard.DisplayManagement;
 using Orchard.DisplayManagement.Descriptors;
-using Orchard.Environment;
-using Orchard.Mvc;
-using Orchard.Mvc.Filters;
 using Orchard.UI.PageClass;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace MainBit.General.Shapes
 {
@@ -26,46 +19,50 @@ namespace MainBit.General.Shapes
 
         public void Discover(ShapeTableBuilder builder)
         {
-            builder.Describe("Layout").OnDisplaying(displaying =>
-            {
-                var workContext = _wca.GetContext();
-                var httpContext = workContext.HttpContext;
-                var pageClassBuilder = workContext.Resolve<IPageClassBuilder>();
-
-                // add name alternate
-                if (!string.IsNullOrWhiteSpace(httpContext.Request["layout-name"]))
+            builder.Describe("Layout")
+                .Configure(descriptor => descriptor.Wrappers.Insert(0, "DocumentCodeBefore"))
+                .OnDisplaying(displaying =>
                 {
-                    var layoutName = EncodeAlternateElement(httpContext.Request["layout-name"]);
-                    displaying.ShapeMetadata.Alternates.Add(string.Format("Layout__Name__{0}", layoutName));
-                    pageClassBuilder.AddClassNames(string.Format("layout-name-{0}", layoutName));
-                }
+                    var workContext = _wca.GetContext();
+                    var httpContext = workContext.HttpContext;
+                    var pageClassBuilder = workContext.Resolve<IPageClassBuilder>();
 
-                // add not found alternate and class
-                if (httpContext.Response.StatusCode == 404)
-                {
-                    displaying.ShapeMetadata.Alternates.Add("Layout__NotFound");
-                    pageClassBuilder.AddClassNames("not-found");
-                }
+                    // add layout name alternate
+                    if (!string.IsNullOrWhiteSpace(httpContext.Request["layout-name"]))
+                    {
+                        var layoutName = EncodeAlternateElement(httpContext.Request["layout-name"]);
+                        displaying.ShapeMetadata.Alternates.Add(string.Format("Layout__Name__{0}", layoutName));
+                        //it should be added from .cshtml because i don't know that alternate will be rendered
+                        //pageClassBuilder.AddClassNames(string.Format("layout-{0}", layoutName));
+                    }
 
-                // add class name
-                if (!string.IsNullOrWhiteSpace(httpContext.Request["class-name"]))
-                {
-                    pageClassBuilder.AddClassNames(httpContext.Request["class-name"]);
-                }
+                    // add not found alternate
+                    if (httpContext.Response.StatusCode == 404)
+                    {
+                        displaying.ShapeMetadata.Alternates.Add("Layout__NotFound");
+                        //it should be added from .cshtml because i don't know that alternate will be rendered
+                        //pageClassBuilder.AddClassNames(string.Format("layout-", "not-found"));
+                    }
 
-                // add home class
-                if (httpContext.Request.Url.AbsolutePath.TrimEnd('/').Equals(httpContext.Request.ApplicationPath.TrimEnd('/'), StringComparison.InvariantCultureIgnoreCase))
-                {
-                    pageClassBuilder.AddClassNames("home");
-                }
+                    // add class name from query string
+                    if (!string.IsNullOrWhiteSpace(httpContext.Request["class-name"]))
+                    {
+                        pageClassBuilder.AddClassNames(httpContext.Request["class-name"]);
+                    }
 
+                    // add homepage class
+                    var isHomepage = string.Equals(
+                        httpContext.Request.Url.AbsolutePath.TrimEnd('/'),
+                        httpContext.Request.ApplicationPath.TrimEnd('/'),
+                        StringComparison.InvariantCultureIgnoreCase);
+                    pageClassBuilder.AddClassNames(isHomepage ? "homepage" : "not-homepage");
 
-                // add routing alternates
-                var routeValues = httpContext.Request.RequestContext.RouteData.Values;
-                displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area"));
-                displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller"));
-                displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller", "action"));
-            });
+                    // add routing alternates
+                    var routeValues = httpContext.Request.RequestContext.RouteData.Values;
+                    displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area"));
+                    displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller"));
+                    displaying.ShapeMetadata.Alternates.Add(BuildShapeName(routeValues, "area", "controller", "action"));
+                });
         }
 
         /// <summary>
