@@ -4,9 +4,11 @@ using Orchard.ContentManagement;
 using Orchard.Localization;
 using Orchard.Tokens;
 using Orchard;
+using Orchard.Environment.Extensions;
 
 namespace MainBit.General.Tokens.Providers
 {
+    [OrchardFeature("MainBit.General.Tokens")]
     public class RequestTokens : ITokenProvider {
         private readonly IWorkContextAccessor _workContextAccessor;
         private readonly IContentManager _contentManager;

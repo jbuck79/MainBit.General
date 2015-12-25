@@ -4,9 +4,11 @@ using Orchard.ContentManagement;
 using Orchard.Localization;
 using Orchard.Tokens;
 using Orchard;
+using Orchard.Environment.Extensions;
 
 namespace MainBit.General.Tokens.Providers
 {
+    [OrchardFeature("MainBit.General.Tokens")]
     public class OtherTokens : ITokenProvider {
         private readonly IWorkContextAccessor _workContextAccessor;
         private readonly IContentManager _contentManager;
@@ -21,7 +23,7 @@ namespace MainBit.General.Tokens.Providers
         public Localizer T { get; set; }
 
         public void Describe(DescribeContext context) {
-            context.For("HttpContext")
+            context.For("HttpContext", T("Http Context"), T("Http Context"))
                 .Token("Counting:*", T("Counting:<name>"), T("Incremented value of specific name that starts from 1"))
             ;
         }
