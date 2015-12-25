@@ -21,8 +21,8 @@ namespace MainBit.General.Tokens.Providers
         public Localizer T { get; set; }
 
         public void Describe(DescribeContext context) {
-            context.For("Request")
-                .Token("UrlReferrer", T("Url referrer"), T("The url referrer"))
+            context.For("HttpContext")
+                .Token("Counting:*", T("Counting:<name>"), T("Incremented value of specific name that starts from 1"))
             ;
         }
 

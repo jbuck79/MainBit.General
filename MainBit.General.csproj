@@ -142,6 +142,7 @@
     <Compile Include="Taxonomies\Tokens\TaxonomyTokens.cs" />
     <Compile Include="Tokens\Providers\OtherTokens.cs" />
     <Compile Include="Tokens\Providers\RequestTokens.cs" />
+    <Compile Include="Tokens\Providers\UriTokens.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DynamicForms\Scripts\Web.config" />
