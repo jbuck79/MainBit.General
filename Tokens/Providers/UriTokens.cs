@@ -33,7 +33,7 @@ namespace MainBit.General.Tokens.Providers
         public void Evaluate(EvaluateContext context)
         {
             context.For<ISite>("Site")
-                   .Chain("BaseUrl", "Uri", content => content.BaseUrl));
+                   .Chain("BaseUrl", "Uri", content => content.BaseUrl);
 
             context.For<Uri>("Uri")
                 .Token("Scheme", content => content.Scheme)
