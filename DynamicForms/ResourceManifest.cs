@@ -1,7 +1,9 @@
 ﻿using Orchard;
+using Orchard.Environment.Extensions;
 using Orchard.UI.Resources;
 
 namespace MainBit.General.DynamicForms {
+    [OrchardFeature("MainBit.General.DynamicForms")]
     public class ResourceManifest : IResourceManifestProvider {
 
         private readonly IWorkContextAccessor _wca;

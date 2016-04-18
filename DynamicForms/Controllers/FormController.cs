@@ -13,9 +13,11 @@ using Orchard.UI.Notify;
 using IController = Orchard.DynamicForms.Services.IController;
 using MainBit.General.DynamicForms.Helpers;
 using System.Collections.Generic;
+using Orchard.Environment.Extensions;
 
 namespace MainBit.General.DynamicForms.Controllers
 {
+    [OrchardFeature("MainBit.General.DynamicForms")]
     public class FormController : Controller, IController, IUpdateModel
     {
         private readonly INotifier _notifier;
