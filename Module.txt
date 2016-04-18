@@ -10,9 +10,9 @@ Features:
 		Name: MainBit.General
         Description: Description for feature MainBit.General.
 		Category: Content
-	MainBit.General.Conditions
-		Name: MainBit.General.Conditions
-        Description: Description for feature MainBit.General.Conditions.
+	MainBit.General.Rules
+		Name: MainBit.General.Rules
+        Description: Description for feature MainBit.General.Rules.
 		Category: Widget
 		Dependencies: Orchard.Widgets, MainBit.Utility
 	MainBit.General.Projections
