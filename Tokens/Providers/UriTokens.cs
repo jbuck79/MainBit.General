@@ -36,7 +36,7 @@ namespace MainBit.General.Tokens.Providers
                 ;
             context.For("Uri", T("Uri"), T("Uri"))
                 .Token("Scheme", T("Scheme"), T("The scheme of the uri."))
-                .Token("Scheme", T("Scheme"), T("The host of the uri."))
+                .Token("Host", T("Scheme"), T("The host of the uri."))
             ;
         }
 

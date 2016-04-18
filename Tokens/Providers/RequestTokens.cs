@@ -34,10 +34,8 @@ namespace MainBit.General.Tokens.Providers
             }
 
             context.For("Request", _workContextAccessor.GetContext().HttpContext.Request)
-                .Token("UrlReferrer",
-                    (request) => { 
-                        return request.UrlReferrer;
-                    });
+                .Token("UrlReferrer", request => request.UrlReferrer)
+                .Chain("UrlReferrer", "Uri", request => request.UrlReferrer);
         }
     }
 }

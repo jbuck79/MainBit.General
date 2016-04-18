@@ -116,6 +116,10 @@
       <Name>MainBit.Utility</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Conditions\Orchard.Conditions.csproj">
+      <Project>{98251eae-a41b-47b2-aa91-e28b8482da70}</Project>
+      <Name>Orchard.Conditions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orchard.DynamicForms\Orchard.DynamicForms.csproj">
       <Project>{82190f52-2901-46d6-8a4c-34649959483f}</Project>
       <Name>Orchard.DynamicForms</Name>
@@ -146,11 +150,6 @@
       <Name>Orchard.Tokens</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Orchard.Widgets\Orchard.Widgets.csproj">
-      <Project>{194d3ccc-1153-474d-8176-fde8d7d0d0bd}</Project>
-      <Name>Orchard.Widgets</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CultureCommands.cs" />
@@ -160,8 +159,8 @@
     <Compile Include="DynamicForms\ResourceManifest.cs" />
     <Compile Include="Projections\Providers\Filters\ContainerIdFilter.cs" />
     <Compile Include="Projections\Providers\Filters\ContentIdFilter.cs" />
-    <Compile Include="Rules\PartRuleProvider.cs" />
-    <Compile Include="Rules\QueryStringRuleProvider.cs" />
+    <Compile Include="Conditions\PartRuleProvider.cs" />
+    <Compile Include="Conditions\QueryStringRuleProvider.cs" />
     <Compile Include="Shapes\LayoutShape.cs" />
     <Compile Include="Taxonomies\Projections\TermsFilter.cs" />
     <Compile Include="Taxonomies\Projections\TermsFilterForms.cs" />
