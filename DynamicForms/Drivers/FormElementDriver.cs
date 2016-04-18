@@ -16,9 +16,11 @@ using Orchard.Tokens;
 using DescribeContext = Orchard.Forms.Services.DescribeContext;
 using Orchard.UI.Resources;
 using Orchard.Environment;
+using Orchard.Environment.Extensions;
 
 namespace MainBit.General.DynamicForms.Drivers
 {
+    [OrchardFeature("MainBit.General.DynamicForms")]
     public class FormElementDriver : ElementDriver<Form>
     {
         private readonly Work<IResourceManager> _resourceManager;
