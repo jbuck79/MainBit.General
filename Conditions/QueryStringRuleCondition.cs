@@ -7,10 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MainBit.General.Rules
+namespace MainBit.General.Conditions
 {
-    [OrchardFeature("MainBit.General.Rules")]
-    public class QueryStringRuleProvider : IRuleProvider
+    [OrchardFeature("MainBit.General.Conditions")]
+    public class QueryStringRuleProvider : IConditionProvider
     {
         private readonly IHttpContextAccessor _hta;
 
@@ -19,16 +19,16 @@ namespace MainBit.General.Rules
             _hta = hta;
         }
 
-        public void Process(RuleContext ruleContext)
+        public void Evaluate(dynamic evaluationContext)
         {
-            if (!String.Equals(ruleContext.FunctionName, "querystring", StringComparison.OrdinalIgnoreCase))
+            if (!String.Equals(evaluationContext.FunctionName, "querystring", StringComparison.OrdinalIgnoreCase))
                 return;
             
-            var key = Convert.ToString(ruleContext.Arguments[0]);
-            var value = ruleContext.Arguments.Length > 1 ? Convert.ToString(ruleContext.Arguments[1]) : null;
+            var key = Convert.ToString(evaluationContext.Arguments[0]);
+            var value = evaluationContext.Arguments.Length > 1 ? Convert.ToString(evaluationContext.Arguments[1]) : null;
 
             var qsValue = _hta.Current().Request.QueryString[key];
-            ruleContext.Result = qsValue == null
+            evaluationContext.Result = qsValue == null
                 ? false
                 : value == null
                     ? true
