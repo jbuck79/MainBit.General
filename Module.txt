@@ -10,11 +10,11 @@ Features:
 		Name: MainBit.General
         Description: Description for feature MainBit.General.
 		Category: Content
-	MainBit.General.Rules
-		Name: MainBit.General.Rules
-        Description: Description for feature MainBit.General.Rules.
+	MainBit.General.Conditions
+		Name: MainBit.General.Conditions
+        Description: Description for feature MainBit.General.Conditions.
 		Category: Widget
-		Dependencies: Orchard.Widgets, MainBit.Utility
+		Dependencies: Orchard.Conditions, MainBit.Utility
 	MainBit.General.Projections
 		Name: MainBit.General.Projections
         Description: Provides projection filter by container Id.
