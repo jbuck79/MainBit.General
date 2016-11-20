@@ -13,7 +13,7 @@ namespace MainBit.General.Identity.Settings
         public void Build(ContentTypePartDefinitionBuilder builder)
         {
             builder.WithSetting("IdentitySettings.DisplayOnEdit", DisplayOnEdit.ToString(CultureInfo.InvariantCulture));
-            builder.WithSetting("IdentitySettings.GenerateOnEdit", DisplayOnEdit.ToString(CultureInfo.InvariantCulture));
+            builder.WithSetting("IdentitySettings.GenerateOnEdit", GenerateOnEdit.ToString(CultureInfo.InvariantCulture));
         }
     }
 }
