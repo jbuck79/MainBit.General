@@ -1,0 +1,12 @@
+﻿@model Orchard.Core.Common.Models.IdentityPart
+<fieldset>
+    <label for="@Html.FieldIdFor(m => m.Identifier)">@T("Identifier")</label>
+    <input type="text"
+           name="@Html.NameFor(m => m.Identifier)"
+           id="@Html.IdFor(m => m.Identifier)"
+           value="@Html.ValueFor(m => m.Identifier)"
+           class="text medium"
+           readonly
+           />
+    <span class="hint">@T("Orchard standard identifier for content item.")</span>
+</fieldset>

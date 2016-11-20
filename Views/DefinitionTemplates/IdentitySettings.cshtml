@@ -1,0 +1,11 @@
+﻿@model MainBit.General.Identity.Settings.IdentitySettings
+<fieldset>
+    @Html.CheckBoxFor(m => m.DisplayOnEdit)
+    <label class="forcheckbox" for="@Html.FieldIdFor(m => m.DisplayOnEdit)">@T("Display on edit content item")</label>
+    <span class="hint">@T("This option will cause the identifier to be displayed when content item is edited.")</span>
+</fieldset>
+<fieldset>
+    @Html.CheckBoxFor(m => m.GenerateOnEdit)
+    <label class="forcheckbox" for="@Html.FieldIdFor(m => m.GenerateOnEdit)">@T("Generate on edit content item")</label>
+    <span class="hint">@T("This option will cause the identifier to be generated when content item is edited if before that identifier was empty.")</span>
+</fieldset>

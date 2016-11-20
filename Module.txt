@@ -10,6 +10,10 @@ Features:
 		Name: MainBit.General
         Description: Description for feature MainBit.General.
 		Category: Content
+	MainBit.General.Identity:
+		Name: MainBit.General.Identity
+        Description: Description for feature MainBit.General.Identity.
+		Category: Content
 	MainBit.General.Conditions
 		Name: MainBit.General.Conditions
         Description: Description for feature MainBit.General.Conditions.

@@ -158,6 +158,10 @@
     <Compile Include="DynamicForms\Drivers\HiddenFieldElementDriver.cs" />
     <Compile Include="DynamicForms\Helpers\FormControllerExtensions.cs" />
     <Compile Include="DynamicForms\ResourceManifest.cs" />
+    <Compile Include="Identity\Drivers\IdentityPartDriver.cs" />
+    <Compile Include="Identity\Handlers\IdentityPartHandler.cs" />
+    <Compile Include="Identity\Settings\IdentitySettings.cs" />
+    <Compile Include="Identity\Settings\IdentitySettingsEvents.cs" />
     <Compile Include="Projections\Providers\Filters\ContainerIdFilter.cs" />
     <Compile Include="Projections\Providers\Filters\ContentIdFilter.cs" />
     <Compile Include="Conditions\PartRuleCondition.cs" />
@@ -178,6 +182,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EditorTemplates\Parts.Identity.Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Placement.info">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DefinitionTemplates\IdentitySettings.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
