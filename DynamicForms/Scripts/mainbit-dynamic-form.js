@@ -11,7 +11,7 @@
 
     // https://www.cloudconstruct.com/blog/submitting-a-form-via-ajax-with-the-custom-forms-module
 
-    $('form[action$="/MainBit.General/Form/Submit"]').submit(function () {
+    $('form[action$="/MainBit.General/Form/Submit"]').submit(function (event) {
         event.preventDefault ? event.preventDefault() : event.returnValue = false;
 
         var form = $(this),
